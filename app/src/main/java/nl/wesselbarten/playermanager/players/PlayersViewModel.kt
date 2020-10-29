@@ -22,7 +22,6 @@ class PlayersViewModel @ViewModelInject constructor(
         }
     }
 
-    private val _playerSortOrders = MutableLiveData<List<PlayerSortOrder>>()
     val playerSortOrders: LiveData<List<PlayerSortOrder>> =
         liveData {
             val result = playerRepository.getSortOrders()
@@ -42,13 +41,6 @@ class PlayersViewModel @ViewModelInject constructor(
                 is Result.Error -> GetPlayersState.Error
             }
         }
-
-//        viewModelScope.launch {
-//            val result = playerRepository.getSortOrders()
-//            if (result is Result.Success) {
-//                _playerSortOrders.value = result.data
-//            }
-//        }
     }
 
     fun sortPlayers(playerSortOrder: PlayerSortOrder) {
