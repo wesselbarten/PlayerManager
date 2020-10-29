@@ -65,10 +65,10 @@ class PlayersViewModel @ViewModelInject constructor(
                     getPlayersState.players.sortedBy { it.printName() }
                 }
                 PlayerSortOrder.CREATED -> {
-                    getPlayersState.players.sortedBy { it.createdAt.time }
+                    getPlayersState.players.sortedByDescending { it.createdAt.time }
                 }
                 PlayerSortOrder.SCORE -> {
-                    getPlayersState.players.sortedBy { it.score }
+                    getPlayersState.players.sortedByDescending { it.score }
                 }
             }
             GetPlayersState.Success(players)

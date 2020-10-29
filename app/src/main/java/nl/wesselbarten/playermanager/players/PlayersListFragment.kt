@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import nl.wesselbarten.playermanager.databinding.FragmentPlayersListBinding
+import nl.wesselbarten.playermanager.util.DividerItemDecoration
 
 @AndroidEntryPoint
 class PlayersListFragment : Fragment() {
@@ -25,6 +26,7 @@ class PlayersListFragment : Fragment() {
         binding = FragmentPlayersListBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
         binding.rcvPlayers.adapter = playersAdapter
+        binding.rcvPlayers.addItemDecoration(DividerItemDecoration(requireContext()))
         setupClickListeners()
         return binding.root
     }

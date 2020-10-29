@@ -6,8 +6,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@drawable/bg_bottom_sheet">
+        android:background="@color/white"
+        android:orientation="vertical">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcv_player_sort_orders"
@@ -16,7 +16,7 @@
             android:paddingStart="15dp"
             android:paddingEnd="15dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_player_sort_order"/>
+            tools:listitem="@layout/item_player_sort_order" />
 
     </LinearLayout>
 </layout>

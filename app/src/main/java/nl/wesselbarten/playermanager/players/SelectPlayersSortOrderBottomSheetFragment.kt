@@ -9,6 +9,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import dagger.hilt.android.AndroidEntryPoint
 import nl.wesselbarten.playermanager.databinding.BottomSheetFragmentSelectPlayersSortOrderBinding
 import nl.wesselbarten.playermanager.domain.model.PlayerSortOrder
+import nl.wesselbarten.playermanager.util.DividerItemDecoration
 
 @AndroidEntryPoint
 class SelectPlayersSortOrderBottomSheetFragment : BottomSheetDialogFragment(),
@@ -27,6 +28,7 @@ class SelectPlayersSortOrderBottomSheetFragment : BottomSheetDialogFragment(),
         binding = BottomSheetFragmentSelectPlayersSortOrderBinding.inflate(LayoutInflater.from(requireContext()), null, false)
         binding.lifecycleOwner = this
         binding.rcvPlayerSortOrders.adapter = playerSortOrdersAdapter
+        binding.rcvPlayerSortOrders.addItemDecoration(DividerItemDecoration(requireContext()))
         return binding.root
     }
 

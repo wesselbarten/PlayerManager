@@ -3,29 +3,59 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="showError"
+            type="Boolean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:background="@color/white">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_select_players_sort_order"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
+            android:layout_marginTop="15dp"
             android:layout_marginEnd="15dp"
             android:background="@drawable/bg_button_rounded_primary"
-            android:textColor="@color/white"
             android:text="@string/action_select_player_sort_order"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="15dp"/>
+            android:textColor="@color/white"
+            android:visibility="@{showError ? View.GONE : View.VISIBLE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcv_players"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:layout_marginTop="30dp"
+            android:visibility="@{showError ? View.GONE : View.VISIBLE}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_select_players_sort_order"
+            app:layout_constraintVertical_chainStyle="packed"
             tools:listitem="@layout/item_player" />
-    </LinearLayout>
+
+        <include
+            layout="@layout/layout_unable_to_load_players"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="@{showError ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
