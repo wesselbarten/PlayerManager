@@ -26,7 +26,7 @@ class PlayersViewModel @ViewModelInject constructor(
         liveData {
             val result = playerRepository.getSortOrders()
             if (result is Result.Success) {
-                this.emit(result.data)
+                emit(result.data)
             }
         }.switchMap { sortOrders ->
             _selectedPlayerSortOrder.map { currentOrder ->
